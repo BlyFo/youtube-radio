@@ -1,0 +1,48 @@
+.audio-button-base{
+    opacity: 0.5;
+    transition: 0.3s;
+}
+.audio-button-base + .audio-button-base{
+    margin-left: 5px;
+}
+.audio-button-base:hover{
+    opacity: 0.8;
+}
+.audio-controls-container{
+    margin-bottom: 15px;
+    flex-direction: row;
+    display: flex;
+    align-items: flex-end;
+    /*border: 1px solid blue;*/
+}
+.play-button{
+    border: 1px solid white;
+    background: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.changeSong-button{
+    border: 1px solid white;
+    background: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+.sound-button-container{
+    display: flex; 
+    height: 100%; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 5px
+}
+.sound-button{
+    border: 1px solid white;
+    background: none;
+    border-radius: 50%;
+    width: 37px;
+    height: 37px;
+}

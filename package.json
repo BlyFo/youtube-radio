@@ -61,7 +61,8 @@
     ]
   },
   "devDependencies": {
-    "@types/electron": "^1.6.10"
+    "@types/electron": "^1.6.10",
+    "@types/react-native": "^0.67.2"
   },
   "browser": {
     "fs": false,

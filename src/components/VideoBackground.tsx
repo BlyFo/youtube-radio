@@ -9,6 +9,7 @@ interface VideoProps {
   play: boolean;
   mute: boolean;
   volume: number;
+  url: string;
 }
 
 function VideoBackground(props: VideoProps) {
@@ -27,12 +28,12 @@ function VideoBackground(props: VideoProps) {
       }}
       width={props.windowDimensions.width * 1.5}
       height={props.video ? props.windowDimensions.height * 1.5 : 0}
-      url="https://www.youtube.com/embed/5qap5aO4i9A?rel=0"
+      url={props.url} //"https://www.youtube.com/embed/5qap5aO4i9A?rel=0"
       controls={false}
       playing={props.play}
       volume={props.mute ? 0 : props.volume / 100}
       pip={true}
-      config={{ youtube: { playerVars: { rel: 0 } } }}
+      config={{ youtube: { playerVars: { rel: 0, autoplay: 1 } } }}
     />
   );
 }

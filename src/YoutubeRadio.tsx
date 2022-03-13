@@ -5,6 +5,7 @@ import AudioControl from "./components/AudioControl";
 import MusicPicker from "./components/MusicPicker";
 import Configs from "./components/Configs";
 import Window from "./components/Window";
+import { LoadInf } from "./data/SaveLoadInf";
 
 import "./YoutubeRadio.css";
 
@@ -14,6 +15,9 @@ function YoutubeRadio() {
   const [play, setPlay] = useState(true);
   const [mute, setMute] = useState(false);
   const [video, setVideo] = useState(true);
+  const [stationIndex, setStationIndex] = useState(0);
+  const [stations, setStations] = useState<any>([]);
+  const [doneGettingData, setDoneGettingData] = useState(false);
   const [windowDimensions, setWindowDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth
@@ -25,12 +29,16 @@ function YoutubeRadio() {
         height: window.innerHeight,
         width: window.innerWidth
       });
-      console.log(window.innerWidth);
     }
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    setStations(LoadInf().data.stations);
+    setDoneGettingData(true);
+  }, [])
 
   return (
     <Window>
@@ -40,13 +48,18 @@ function YoutubeRadio() {
         play={play}
         mute={mute}
         volume={volume}
+        url={doneGettingData ? stations[stationIndex].url : ''}
       />
       <div className="window-content">
         <div className="topBar" >
           <p className="project-tittle">Youtube Radio</p>
         </div>
         <div className="content">
-          <MusicPicker />
+          <MusicPicker
+            radiosStations={stations}
+            stationIndex={stationIndex}
+            setStationIndex={setStationIndex}
+          />
         </div>
         <div className="bottomBar">
           <div className="empty-container" />

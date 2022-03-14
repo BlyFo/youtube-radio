@@ -1,6 +1,6 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
-import { motion } from "framer-motion"
+import React, { Dispatch, SetStateAction } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { motion } from "framer-motion"
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import SimpleBar from 'simplebar-react';
 
@@ -12,6 +12,8 @@ interface MusicPickerProps {
   stationIndex: number;
   setStationIndex: Dispatch<SetStateAction<number>>;
 }
+
+//Gets the list of radio stations and dysplays it on screen
 
 function MusicPicker(props: MusicPickerProps) {
   const updateValue = (index: number) => {

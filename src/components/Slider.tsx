@@ -6,6 +6,8 @@ interface AudioProps {
     setValue: Dispatch<SetStateAction<number>>;
 }
 
+//Generic slider used to controll the volume in AudioControls.tsx
+
 function Slider(props: AudioProps) {
 
     const handleChange = (event: React.SyntheticEvent) => {

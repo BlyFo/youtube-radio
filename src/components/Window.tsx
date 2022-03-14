@@ -5,6 +5,9 @@ interface WindowProps {
   children: React.ReactNode
 }
 
+//this module takes care of the dragable region on the top of the screen (with css),
+//the background image (only visible when the video opation is deactivate in config),
+//and the close button (not working)
 
 function Window(props: WindowProps) {
 

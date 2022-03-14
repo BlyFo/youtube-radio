@@ -2,13 +2,17 @@ import React, { useState, Dispatch, SetStateAction } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { motion } from "framer-motion";
+import { SaveInfo } from '../data/SaveLoadInf';
 
 import './Configs.css'
 
 interface ConfigProps {
   video: boolean;
   setVideo: Dispatch<SetStateAction<boolean>>;
+  radiosStations: any;
 }
+
+//This module have the config icon (bottom right corner) and the modal with the configs
 
 function Configs(props: ConfigProps) {
 
@@ -62,7 +66,17 @@ function Configs(props: ConfigProps) {
                     </p>
                     <input className='config-inpuText' type="text" value={newVideoUrl} onChange={e => setNewVideoUrl(e.target.value)} />
                   </div>
-                  <button className='config-type-window' style={{ marginTop: '8px' }}> Add new Station</button>
+                  <button
+                    className='config-type-window'
+                    style={{ marginTop: '8px' }}
+                    onClick={() => SaveInfo({
+                      name: newVideoName,
+                      url: newVideoUrl,
+                      stations: props.radiosStations
+                    })}
+                  >
+                    Add
+                  </button>
                 </div>
               </div>
             </div>

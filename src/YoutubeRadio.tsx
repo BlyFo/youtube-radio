@@ -24,6 +24,7 @@ function YoutubeRadio() {
   });
 
   useEffect(() => {
+    //adjust the video size when the screen is resized
     function handleResize() {
       setWindowDimensions({
         height: window.innerHeight,
@@ -36,6 +37,7 @@ function YoutubeRadio() {
   }, []);
 
   useEffect(() => {
+    //get the songs stored in memory when the app opens
     setStations(LoadInf().data.stations);
     setDoneGettingData(true);
   }, [])
@@ -70,8 +72,15 @@ function YoutubeRadio() {
             setPlay={setPlay}
             mute={mute}
             setMute={setMute}
+            radiosStations={stations}
+            stationIndex={stationIndex}
+            setStationIndex={setStationIndex}
           />
-          <Configs video={video} setVideo={setVideo} />
+          <Configs
+            video={video}
+            setVideo={setVideo}
+            radiosStations={stations}
+          />
         </div>
       </div>
     </Window>
